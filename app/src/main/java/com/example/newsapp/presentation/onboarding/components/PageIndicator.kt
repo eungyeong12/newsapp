@@ -15,17 +15,26 @@ import com.example.newsapp.presentation.Dimens.IndicatorSize
 import com.example.newsapp.ui.theme.BlueGray
 
 @Composable
-fun PageIndicator(
+fun PageIndicator( // 페이지 기반 UI에서 현재 페이지를 표시하기 위해 사용
     modifier: Modifier = Modifier,
     pageSize: Int,
     selectedPage: Int,
     selectedColor: Color = MaterialTheme.colorScheme.primary,
     unselectedColor: Color = BlueGray
 ) {
-    Row(modifier = modifier, horizontalArrangement = Arrangement.SpaceBetween) {
+    // 가로로 배치
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.SpaceBetween // Indicator를 균등하게 배치
+    ) {
+        // 페이지 수만큼 반복하여 indicator 생성
         repeat(pageSize) { page ->
-            Box(modifier = Modifier.size(IndicatorSize).clip(CircleShape)
-                .background(color = if (page == selectedPage) selectedColor else unselectedColor)
+            // Box는 하나의 indicator를 나타냄
+            Box(
+                modifier = Modifier
+                    .size(IndicatorSize)
+                    .clip(CircleShape)
+                    .background(color = if (page == selectedPage) selectedColor else unselectedColor)
             )
         }
     }

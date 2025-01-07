@@ -20,7 +20,9 @@ class MainActivity : AppCompatActivity() {
         installSplashScreen()
         setContent {
             NewsAppTheme {
+                // Box는 ui 요소를 감싸는 컨테이너
                 Box(modifier = Modifier.background(color = MaterialTheme.colorScheme.background))
+                // OnBoarding 화면 표시
                 OnBoardingScreen()
             }
         }

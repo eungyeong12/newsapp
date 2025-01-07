@@ -26,11 +26,10 @@ import com.example.newsapp.ui.theme.NewsAppTheme
 
 @Composable
 fun OnBoardingPage(
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier, // 레이아웃을 수정하는 데 사용하는 Modifier
     page: Page
 ) {
-
-    Column(modifier = modifier) {
+    Column(modifier = modifier) { // 세로 방향으로 UI 요소 정렬
         Image(
             modifier = Modifier
                 .fillMaxWidth()
@@ -39,7 +38,7 @@ fun OnBoardingPage(
             contentDescription = null,
             contentScale = ContentScale.Crop
         )
-        Spacer(modifier = Modifier.height(MediumPadding1))
+        Spacer(modifier = Modifier.height(MediumPadding1)) // 이미지와 텍스트 사이 공간 추가
         Text(
             text = page.title,
             modifier = Modifier.padding(horizontal = MediumPadding2),
@@ -55,12 +54,12 @@ fun OnBoardingPage(
     }
 }
 
-@Preview(showBackground = true)
-@Preview(uiMode = UI_MODE_NIGHT_YES, showBackground = true)
+@Preview(showBackground = true) // 기본 배경에서 미리보기 표시
+@Preview(uiMode = UI_MODE_NIGHT_YES, showBackground = true) // 야간 모드에서 미리보기
 @Composable
 fun OnBoardingPagePreview() {
-    NewsAppTheme {
-        OnBoardingPage(
+    NewsAppTheme { // 앱의 테마 설정
+        OnBoardingPage( // 첫 번째 Onboarding 페이지 미리보기
             page = pages[0]
         )
     }

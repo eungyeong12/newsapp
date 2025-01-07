@@ -12,15 +12,15 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun NewsButton (
-    text: String,
-    onClick:() -> Unit
+    text: String, // 버튼에 표시할 텍스트
+    onClick:() -> Unit // 버튼 클릭 시 실행할 콜백 함수
 ) {
     Button(
         onClick = onClick, colors = ButtonDefaults.buttonColors(
         containerColor = MaterialTheme.colorScheme.primary,
         contentColor = Color.White
         ),
-        shape = RoundedCornerShape(size = 6.dp)
+        shape = RoundedCornerShape(size = 6.dp) // 버튼 모서리를 둥글게 설정
     ) {
         Text(
             text = text,
