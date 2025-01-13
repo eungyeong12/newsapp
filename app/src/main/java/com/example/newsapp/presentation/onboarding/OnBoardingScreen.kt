@@ -10,14 +10,13 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.Modifier
 import com.example.newsapp.presentation.Dimens.MediumPadding2
 import com.example.newsapp.presentation.Dimens.PageIndicatorWidth
 import com.example.newsapp.presentation.common.NewsButton
@@ -27,7 +26,9 @@ import com.example.newsapp.presentation.onboarding.components.PageIndicator
 import kotlinx.coroutines.launch
 
 @Composable
-fun OnBoardingScreen() {
+fun OnBoardingScreen(
+    event: (OnBoardingEvent) -> Unit // OnBoardingEvent를 처리하는 람다 함수. ViewModel에서 이 함수를 받아 처리.
+) {
     Column(modifier = Modifier.fillMaxSize()) {
         // 페이지 상태를 관리
         val pagerState = rememberPagerState(initialPage = 0) {
@@ -92,8 +93,9 @@ fun OnBoardingScreen() {
                     text = buttonState.value[1], // 버튼 텍스트 설정
                     onClick = {
                         scope.launch {
-                            if (pagerState.currentPage == 3) {
-                                //TODO: Navigate to Home Screen
+                            if (pagerState.currentPage == 2) {
+                                // SaveAppEntry 이벤트를 호출하여 사용자의 OnBoarding 완료 상태를 저장하도록 요청
+                                event(OnBoardingEvent.SaveAppEntry)
                             } else {
                                 pagerState.animateScrollToPage(
                                     page = pagerState.currentPage + 1
