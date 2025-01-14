@@ -10,7 +10,7 @@ class ReadAppEntry(
 
     // invoke 연산자 함수를 사용하여 객체를 함수처럼 호출 가능
     // suspend 키워드가 붙어 있어 비동기적으로 실행
-    suspend operator fun invoke(): Flow<Boolean>{
+    operator fun invoke(): Flow<Boolean>{
         // LocalUserManger의 readAppEntry()를 호출하여 데이터 반환
         return localUserManger.readAppEntry()
     }
