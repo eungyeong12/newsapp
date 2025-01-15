@@ -1,4 +1,4 @@
-package com.example.newsapp.domain.usecases
+package com.example.newsapp.domain.usecases.app_entry
 
 // 앱의 진입 관련 Use Case를 묶어서 관리
 data class AppEntryUseCases(
