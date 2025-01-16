@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 
 // NewsRepository 인터페이스를 구현하는 클래스
 // API를 호출하여 뉴스 데이터를 가져오고, Paging 라이브러리를 통해 페이징 데이터를 반환
-class NewsRepositoryImp(
+class NewsRepositoryImpl (
     private val newsApi: NewsApi // 뉴스 데이터를 가져오는 API 인터페이스를 주입받음
 ): NewsRepository {
 
